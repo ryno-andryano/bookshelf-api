@@ -1,6 +1,6 @@
 const addBookHandler = require('./handlers/addBookHandler');
-// const getBooksHandler = require('./handlers/getBooksHandler');
-// const getBookDetailHandler = require('./handlers/getBookDetailHandler');
+const getBooksHandler = require('./handlers/getBooksHandler');
+const getBookDetailHandler = require('./handlers/getBookDetailHandler');
 // const editBookHandler = require('./handlers/editBookHandler');
 // const removeBookHandler = require('./handlers/removeBookHandler');
 
@@ -10,16 +10,16 @@ const routes = [
     path: '/books',
     handler: addBookHandler,
   },
-  // {
-  //   method: 'GET',
-  //   path: '/books',
-  //   handler: getBooksHandler,
-  // },
-  // {
-  //   method: 'GET',
-  //   path: ' /books/{bookId}',
-  //   handler: getBookDetailHandler,
-  // },
+  {
+    method: 'GET',
+    path: '/books',
+    handler: getBooksHandler,
+  },
+  {
+    method: 'GET',
+    path: '/books/{bookId}',
+    handler: getBookDetailHandler,
+  },
   // {
   //   method: 'PUT',
   //   path: '/books/{bookId}',
