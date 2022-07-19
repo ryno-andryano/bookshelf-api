@@ -2,7 +2,7 @@ const addBookHandler = require('./handlers/addBookHandler');
 const getBooksHandler = require('./handlers/getBooksHandler');
 const getBookDetailHandler = require('./handlers/getBookDetailHandler');
 const editBookHandler = require('./handlers/editBookHandler');
-// const removeBookHandler = require('./handlers/removeBookHandler');
+const removeBookHandler = require('./handlers/removeBookHandler');
 
 const routes = [
   {
@@ -25,11 +25,11 @@ const routes = [
     path: '/books/{bookId}',
     handler: editBookHandler,
   },
-  // {
-  //   method: 'DELETE',
-  //   path: '/books/{bookId}',
-  //   handler: removeBookHandler,
-  // },
+  {
+    method: 'DELETE',
+    path: '/books/{bookId}',
+    handler: removeBookHandler,
+  },
 ];
 
 module.exports = routes;
