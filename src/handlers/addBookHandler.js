@@ -4,7 +4,7 @@ const {nanoid} = require('nanoid');
 const addBookHandler = (request, h) => {
   const {name, year, author, summary, publisher, pageCount, readPage, reading} =
     request.payload;
-  const id = nanoid(10);
+  const id = nanoid(8);
   const finished = pageCount === readPage;
   const insertedAt = new Date().toISOString();
   const updatedAt = insertedAt;
@@ -17,6 +17,7 @@ const addBookHandler = (request, h) => {
     response.code(400);
     return response;
   }
+
   if (readPage > pageCount) {
     const response = h.response({
       status: 'fail',

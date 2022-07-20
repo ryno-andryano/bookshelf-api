@@ -1,14 +1,35 @@
 const books = require('../data/books');
 
 const getBooksHandler = (request, h) => {
+  const {reading, finished, name} = request.query;
+  let filteredBooks = books;
+
+  if (reading) {
+    const readingFilter = (book) => book.reading == reading;
+    filteredBooks = books.filter(readingFilter);
+  }
+
+  if (finished) {
+    const finishedFilter = (book) => book.finished == finished;
+    filteredBooks = books.filter(finishedFilter);
+  }
+
+  if (name) {
+    const nameFilter = (book) =>
+      book.name.toLowerCase().includes(name.toLowerCase());
+    filteredBooks = books.filter(nameFilter);
+  }
+
+  const mappedBooks = filteredBooks.map((book) => ({
+    id: book.id,
+    name: book.name,
+    publisher: book.publisher,
+  }));
+
   const response = h.response({
     status: 'success',
     data: {
-      books: books.map((book) => ({
-        id: book.id,
-        name: book.name,
-        publisher: book.publisher,
-      })),
+      books: mappedBooks,
     },
   });
   response.code(200);

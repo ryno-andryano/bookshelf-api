@@ -7,7 +7,7 @@ const editBookHandler = (request, h) => {
   const finished = pageCount === readPage;
   const updatedAt = new Date().toISOString();
 
-  const book = books.filter((i) => i.id === bookId)[0];
+  const book = books.filter((book) => book.id === bookId)[0];
   if (!book) {
     const response = h.response({
       status: 'fail',

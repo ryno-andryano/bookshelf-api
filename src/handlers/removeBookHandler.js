@@ -2,7 +2,7 @@ const books = require('../data/books');
 
 const removeBookHandler = (request, h) => {
   const {bookId} = request.params;
-  const book = books.filter((i) => i.id === bookId)[0];
+  const book = books.filter((book) => book.id === bookId)[0];
 
   if (!book) {
     const response = h.response({
