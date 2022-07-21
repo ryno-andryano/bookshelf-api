@@ -6,18 +6,18 @@ const getBooksHandler = (request, h) => {
 
   if (reading) {
     const readingFilter = (book) => book.reading == reading;
-    filteredBooks = books.filter(readingFilter);
+    filteredBooks = filteredBooks.filter(readingFilter);
   }
 
   if (finished) {
     const finishedFilter = (book) => book.finished == finished;
-    filteredBooks = books.filter(finishedFilter);
+    filteredBooks = filteredBooks.filter(finishedFilter);
   }
 
   if (name) {
     const nameFilter = (book) =>
       book.name.toLowerCase().includes(name.toLowerCase());
-    filteredBooks = books.filter(nameFilter);
+    filteredBooks = filteredBooks.filter(nameFilter);
   }
 
   const mappedBooks = filteredBooks.map((book) => ({
